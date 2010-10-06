@@ -1,0 +1,4 @@
+Get-WMIObject -class iiscomputer -namespace "root\microsoftiisv2" -computer webstage2 –authentication 6 | Select-Object Name
+
+
+Get-WmiObject -Namespace "root\cimv2" -Class Win32_Process -Impersonation 3 -Credential aces\nnarisak -ComputerName dbstage1
