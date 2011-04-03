@@ -1,3 +1,5 @@
+# Additional ref:
+# http://technet.microsoft.com/en-us/library/cc281962.aspx
 #
 # Add the SQL Server Provider.
 #

@@ -2,6 +2,7 @@
 # Date: 2010-09-27
 # Name: Execute-SqlScripts.ps1
 #
+# http://powershell.com/cs/media/p/169.aspx
 
 function Execute-SqlScripts {
 
