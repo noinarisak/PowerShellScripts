@@ -1,0 +1,38 @@
+author: noi.narisak@gmail.com
+date:2011.07.18-1545
+
+
+1. At psh prompt: PS > notepad $profile
+2. Copy & paste content between the ###
+
+###
+# Set the psh window title bar.
+$a=(Get-Host).UI.RawUI
+$a.WindowTitle = "Script Center"
+
+# Debug PowerShell script. (ie. variable not be initialized)
+Set-PSDebug -Strict
+
+# Set the execution policy
+Set-ExecutionPolicy RemoteSigned
+
+# Stop executing a script as soon as an error occurs.
+$ErrorActionPreference = "stop" 
+
+# Set the PSDrive custom scripts path.
+New-PSdrive -name scripts -PSprovider filesystem –root C:\_Script
+
+# Set the PSDrive custom application path.
+New-PSdrive -name programfiles -PSprovider filesystem –root "C:\Program Files\"
+
+# Load the custom function into session, assume that the ps1 files are location in C:\_Script dir.
+. scripts:Get-LatestVerison.ps1
+. scripts:View-SqlUseStatements.ps1
+
+# Initialize Snapins into session, assume that the ps1 files are location in C:\_Script dir.
+. scripts:Initialize-SnapInSQLProvider.ps1
+
+# Load custom Alias, assume the application are already installed and located in Program Files dir.
+Set-Alias -name Test-Smtp -value scripts:Test-Smtp.ps1
+Set-Alias -name NotePad-Plus -value programfiles:"Notepad++\notepad++.exe"
+####
