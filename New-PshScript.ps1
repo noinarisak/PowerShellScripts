@@ -77,12 +77,18 @@ Function New-Script {
 	add-content $file "	`" "
 	add-content $file "	 return "
 	add-content $file "} "
-	add-content $file "# Call Functions "
-	add-content $file "$name"
+	add-content $file "# Call Function "
+	add-content $file "# $name"
 	add-content $file ""
+	add-content $file "# Set Alais for the function"
+	add-content $file "New-Alias -name $name -value $name -description `"$name is ...`""
 
 	Invoke-Item $file
 }
 
 # Call Function #
 New-Script
+/*
+ToDo: Update the fit powershell 2.0. comment structure. get-help about_comment_based_help for example.
+
+*/
